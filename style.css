@@ -1,0 +1,125 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", serif;
+    background: radial-gradient(circle, #050505, #1a1a1a, #330000);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Leaderboard container */
+.leaderboard-container {
+    width: 90%;
+    max-width: 600px;
+    padding: 15px;
+    border: 3px solid #660000;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4), 0 0 50px rgba(128, 0, 0, 0.8) inset;
+}
+
+/* Title styling */
+.leaderboard-title h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    color: #ff3333;
+    text-shadow: 0 0 10px #ff4444, 0 0 20px #ff8888, 0 0 30px #ff4444;
+    animation: title-glow 4s infinite alternate;
+}
+
+/* Rest of leaderboard container */
+#leaderboard-entries {
+    max-height: 300px;
+    overflow-y: auto;
+    background: rgba(20, 0, 0, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Individual entries */
+.entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background: rgba(50, 0, 0, 0.9);
+    color: #ff9999;
+    font-size: 1rem;
+    margin: 3px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    position: relative;
+}
+
+/* Hover effect */
+.entry:hover {
+    background: rgba(128, 0, 0, 0.8);
+    transform: scale(1.03);
+}
+
+/* First place styling */
+.entry.first {
+    background: linear-gradient(145deg, #000000, #ffd700);
+    color: #ffd700; /* Name color */
+    font-weight: bold;
+    box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700 inset;
+    animation: glow-line 3s infinite alternate;
+}
+
+.entry.first span:last-child {
+    color: #000; /* Score color for 1st place */
+}
+
+/* Second place styling */
+.entry.second {
+    background: linear-gradient(145deg, #000000, #c0c0c0);
+    color: #c0c0c0; /* Name color */
+    font-weight: bold;
+    box-shadow: 0 0 20px #c0c0c0, 0 0 40px #c0c0c0 inset;
+    animation: glow-line 3s infinite alternate;
+}
+
+.entry.second span:last-child {
+    color: #000; /* Score color for 2nd place */
+}
+
+/* Third place styling */
+.entry.third {
+    background: linear-gradient(145deg, #000000, #cd7f32);
+    color: #cd7f32; /* Name color */
+    font-weight: bold;
+    box-shadow: 0 0 20px #cd7f32, 0 0 40px #cd7f32 inset;
+    animation: glow-line 3s infinite alternate;
+}
+
+.entry.third span:last-child {
+    color: #000; /* Score color for 3rd place */
+}
+
+
+/* Glow line animation for top 3 */
+@keyframes glow-line {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 1);
+    }
+}
+
+/* Title glow animation */
+@keyframes title-glow {
+    0% {
+        text-shadow: 0 0 15px #ff4444, 0 0 30px #ff6666, 0 0 45px #ff4444;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff6666, 0 0 40px #ff8888, 0 0 60px #ff6666;
+    }
+}

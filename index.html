@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UChat Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Leaderboard Container -->
+    <div class="leaderboard-container">
+        <!-- Title -->
+        <div class="leaderboard-title">
+            <h1>LEADERBOARD</h1>
+        </div>
+
+        <!-- Leaderboard Entries -->
+        <div id="leaderboard-entries">
+            <p>Loading leaderboard...</p>
+        </div>
+    </div>
+
+    <!-- Add a script to fetch data from UChat variables -->
+    <script>
+        // Example: Fetch data from UChat API or custom variables
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                // Call your backend API or fetch static data
+                const response = await fetch('https://your-backend-url/get-leaderboard');
+                const data = await response.json();
+
+                // Populate leaderboard
+                const leaderboardEntries = document.getElementById("leaderboard-entries");
+                leaderboardEntries.innerHTML = ""; // Clear loading text
+                data.forEach((entry, index) => {
+                    const row = document.createElement("div");
+                    row.classList.add("entry");
+
+                    // Style top 3
+                    if (index === 0) row.classList.add("first");
+                    if (index === 1) row.classList.add("second");
+                    if (index === 2) row.classList.add("third");
+
+                    row.innerHTML = `<span>${entry.name}</span><span>${entry.score} pts</span>`;
+                    leaderboardEntries.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching leaderboard data:", error);
+            }
+        });
+    </script>
+</body>
+</html>
